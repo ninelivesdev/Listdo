@@ -3,4 +3,6 @@
     <string name="btnAddItem">Add Item</string>
     <string name="file">tasks.txt</string>
     <string name="etBlank" />
+    <string name="listdo">listdo.</string>
+    <string name="emptyTextAlert">Enter text before adding to the list</string>
 </resources>

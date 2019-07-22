@@ -4,8 +4,11 @@ import android.app.Activity;
 import android.content.Context;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.util.ArrayList;
+
+import static com.ninelivesdev.listdo.R.string.emptyTextAlert;
 
 public class UIController
 {
@@ -32,4 +35,7 @@ public class UIController
         textField.setText(list.get(listIndex));
         return textField;
     }
+
+    static void alertEmptyTextField(Context context)
+    { Toast.makeText(context, context.getString(emptyTextAlert), Toast.LENGTH_LONG).show(); }
 }

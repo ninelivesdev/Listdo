@@ -1,5 +1,6 @@
 package com.ninelivesdev.listdo;
 
+import android.app.ActionBar;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
@@ -31,6 +32,10 @@ public class MainActivity extends AppCompatActivity
 
         initComponents();
         initMenu();
+
+        this.getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar().setDisplayShowCustomEnabled(true);
+        getSupportActionBar().setCustomView(R.layout.custom_action_bar);
     }
 
     private void initComponents()
@@ -66,14 +71,14 @@ public class MainActivity extends AppCompatActivity
             {
                 // Edit menu option
                 SwipeMenuItem edit = new SwipeMenuItem(getApplicationContext());
-                edit.setBackground(new ColorDrawable(Color.GREEN));
+                edit.setBackground(new ColorDrawable(Color.parseColor("#3bbf2c")));
                 edit.setWidth(170);
                 edit.setIcon(R.drawable.ic_edit);
                 menu.addMenuItem(edit);
 
                 // Delete menu option
                 SwipeMenuItem delete = new SwipeMenuItem(getApplicationContext());
-                delete.setBackground(new ColorDrawable(Color.RED));
+                delete.setBackground(new ColorDrawable(Color.parseColor("#bf2c2c")));
                 delete.setWidth(170);
                 delete.setIcon(R.drawable.ic_delete);
                 menu.addMenuItem(delete);
@@ -113,15 +118,23 @@ public class MainActivity extends AppCompatActivity
 
     public void onAddItem(View view)
     {
-        if (listIndex == END_OF_LIST_INDEX)
-        { addToList(); }
+        if (getUserInput().isEmpty())
+            UIController.alertEmptyTextField(getApplicationContext());
         else
-        { replaceInList(); }
+        {
+            if (listIndex == END_OF_LIST_INDEX)
+            {
+                addToList();
+            } else
+            {
+                replaceInList();
+            }
 
-        collapseKeyboard();
-        clearTextField();
-        resetListIndex();
-        writeData();
+            collapseKeyboard();
+            clearTextField();
+            resetListIndex();
+            writeData();
+        }
     }
 
     private void onEditItem()
