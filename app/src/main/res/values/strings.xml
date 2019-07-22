@@ -1,8 +1,8 @@
 <resources>
-    <string name="app_name">Listdo</string>
+    <string name="app_name">List.do</string>
     <string name="btnAddItem">Add Item</string>
     <string name="file">tasks.txt</string>
     <string name="etBlank" />
-    <string name="listdo">listdo.</string>
+    <string name="listdo">list.do</string>
     <string name="emptyTextAlert">Enter text before adding to the list</string>
 </resources>

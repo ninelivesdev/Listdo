@@ -3,6 +3,7 @@ package com.ninelivesdev.listdo;
 import android.app.ActionBar;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,6 +13,9 @@ import com.baoyz.swipemenulistview.SwipeMenu;
 import com.baoyz.swipemenulistview.SwipeMenuCreator;
 import com.baoyz.swipemenulistview.SwipeMenuItem;
 import com.baoyz.swipemenulistview.SwipeMenuListView;
+import com.ninelivesdev.listdo.Controllers.FileController;
+import com.ninelivesdev.listdo.Controllers.ListController;
+import com.ninelivesdev.listdo.Controllers.UIController;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity
@@ -116,10 +120,15 @@ public class MainActivity extends AppCompatActivity
         });
     }
 
+    public void onHelp(View view)
+    {
+        Snackbar.make(this.view, "Swipe left <-- right to edit/delete tasks", Snackbar.LENGTH_LONG).show();
+    }
+
     public void onAddItem(View view)
     {
         if (getUserInput().isEmpty())
-            UIController.alertEmptyTextField(getApplicationContext());
+            UIController.alertEmptyTextField(this.view);
         else
         {
             if (listIndex == END_OF_LIST_INDEX)
